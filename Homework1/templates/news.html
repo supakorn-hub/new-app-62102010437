@@ -1,0 +1,45 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="card" style="margin-top: 30px;">
+  <div class="card-header bg-dark text-white">
+    <h2 style="text-align: center;">ค้นหาข่าวที่คุณต้องการ</h2>
+  </div>
+  <div class="card-body bg-secondary text-white">
+    <div class="form-outline">
+      <form>
+        <input type="text" name="word" class="form-control" /><br>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+<div class="card" style="margin-top: 30px; margin-bottom: 60px;">
+  <div class="card-header bg-dark text-white">
+    <h2 style="text-align: center;">News</h2>
+  </div>
+  <div class="card-body bg-secondary text-black">
+    <div class="row">
+      {% for i in news %}
+      <div class="col-md-4 mt-2">
+        <div class="card">
+          <div class="card-body">
+            <h5>{{i.title}}</h4>
+              <p class="card-text text">{{i.description }}</p>
+              <br>
+          </div>
+          <div class="text-right mr-2 mb-3">
+            <a href="{{ i.link }}" class="text-left btn btn-outline-info" target="_blank">Read more...</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

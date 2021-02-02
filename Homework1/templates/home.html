@@ -1,0 +1,63 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<div class="card ">
+  <div class="card-header bg-dark text-white">
+    <h1>Weather<small>สภาพอากาศ</small></h1>
+  </div>
+  <div class="card-body bg-secondary text-white">
+    <div class="row">
+      <div class="col-sm-6">
+        <p>City : <b>{{weather.city}}, {{weather.country}}</b></p>
+        <p>สภาพอากาศ : {{weather.description}} | {{weather.temperature}} &#8451 <img src="{{weather.url}}"></img></p>
+        <p>ความกดอากาศ : {{weather.pressure}}</p>
+        <p>ความชื้น : {{weather.humidity}}</p>
+        <p>ความเร็วลม : {{weather.wind}}</p>
+      </div>
+
+      <div class="col-sm-6">
+        <h5 class="text-center">ตรวจสอบสภาพอากาศของคุณ</h5>
+        <div class="col-sm">
+          <div class="form-outline">
+            <form>
+              <label class="form-label" for="form10Example2">Country</label>
+              <input type="text" name="city" class="form-control" />
+              <br>
+              <button type="submit" class="btn btn-info ">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="card" style="margin-top: 30px;">
+  <div class="card-header bg-dark text-white">
+    <h1>Covid-19 News</h1>
+  </div>
+  <div class="card-body bg-secondary text-black">
+    <div class="row">
+      {% for i in news %}
+      <div class="col-md-4 mt-2">
+        <div class="card">
+          <img class="card-img-top" src="{{i.img}}" alt="Card image cap">
+          <div class="card-body">
+            <h5>{{i.title}}</h4>
+              <p class="card-text text">{{i.description }}</p>
+              <br>
+          </div>
+          <div class="text-right mr-2 mb-3">
+            <a href="{{ i.link }}" class="text-left btn btn-info" target="_blank">Read more</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
