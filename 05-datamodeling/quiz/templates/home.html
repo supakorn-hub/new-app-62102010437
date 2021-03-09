@@ -1,0 +1,53 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+
+
+<body class="text-center">
+    <h1 class="text-center" style="color: white;">Book</h1>
+ <table class="table table-dark table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Height</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in books %}
+            <tr>
+                <td>{{ i.title }}</td>
+                <td>{{ i.author }}</td>
+                <td>{{ i.genre }}</td>
+                <td>{{ i.height }}</td>
+                <td>{{ i.publisher }}</td>
+                <td><a href="/update/{{ i.title }}" class="btn btn-success">Update</a>
+                <button data-id="{{ i.title }}" class="btn btn-danger delete">Delete</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-success"><a href="/insert" style="color:white">Insert</a></button>
+
+<div class="modal fade" id="confirm" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete</h4>
+        </div>
+        <div class="modal-body d-flex justify-content-center">
+          <h1 class="font-danger">Press "Confirm" to delete</h1>
+        </div>
+        <div class="modal-footer">
+          <button data-id="" class="btn btn-success yes">Confirm</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+{% endblock body %}
