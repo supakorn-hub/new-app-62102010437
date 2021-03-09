@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+
+<html>
+    <h1 class="text-center mt-2" style="color: white;">Book</h1>
+    <div class="container">
+    <form action="/insert" method="post">
+        <label style="color: white;">Title :</label><input placeholder="Title | ชื่อหนังสือ" type="text" class="form-control" name="title" />
+        <label style="color: white;">Author :</label><input placeholder="Author | ชื่อผู้แต่ง" type="text" class="form-control"
+            name="author" />
+        <label style="color: white;">Genre :</label><input placeholder="Genre | ประเภทหนังสือ" type="text" class="form-control"
+            name="genre" />
+        <label style="color: white;">Height :</label><input placeholder="Height | จำนวนหน้า" type="integer" class="form-control"
+            name="height" />
+        <label style="color: white;">Publisher :</label><input placeholder="Publisher | สำนักพิมพ์" type="text" class="form-control"
+            name="publisher" />
+        <br>
+        <a href="/" class="btn btn-primary">Back</a>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    </div>
+</html>
+
+{% endblock body %}
